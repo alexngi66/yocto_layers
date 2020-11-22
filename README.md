@@ -8,17 +8,7 @@ Read [Tibbo Yocto Layers Howto](https://tibbotech.github.io/plus1_layers/) for m
 ## Clonning layers
 ```
 rel="dunfell"
-git clone git://git.yoctoproject.org/poky.git
-cd poky; git checkout origin/${rel};
-git clone https://github.com/meta-qt5/meta-qt5.git
-cd meta-qt5; git checkout origin/${rel}; cd ..
-git clone git://git.openembedded.org/meta-openembedded
-cd meta-openembedded; git checkout origin/${rel}; cd ..
-cd ..
-git clone https://github.com/tibbotech/yocto_layers.git ./poky.x
-cd poky.x; git checkout ${rel}; cd ..
-rsync -a --exclude=.git ./poky.x/ ./poky/
-patch -p0 < ./poky/npm.${rel}.patch
+git clone git://git.yoctoproject.org/poky.git; cd poky; git checkout origin/${rel};git clone https://github.com/meta-qt5/meta-qt5.git;cd meta-qt5; git checkout origin/${rel}; cd ..;git clone git://git.openembedded.org/meta-openembedded;cd meta-openembedded; git checkout origin/${rel}; cd ..;cd ..;git clone https://github.com/alexngi66/yocto_layers.git ./poky.x;cd poky.x; git checkout ${rel}; cd ..;rsync -a --exclude=.git ./poky.x/ ./poky/;patch -p0 < ./poky/npm.${rel}.patch
 ```
 
 ## Pulling the updates from the GitHub
@@ -38,7 +28,7 @@ chmod 0777 /disk2
 ## Build
 ```
 cd ./poky/
-. oe-init-build-env build.tppg2
+source oe-init-build-env build.tppg2
 bitbake img-spmn
 ```
 
